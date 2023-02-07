@@ -1,0 +1,114 @@
+{
+  "data": [
+    {
+      "id": 5,
+      "attributes": {
+        "name": "Scott Thompson",
+        "role": "Global Aerospace and Defense Leader, PwC United States",
+        "tel": null,
+        "photo": "/images/staff/scott-thompson-2019.jpg",
+        "createdAt": "2023-02-04T11:02:00.031Z",
+        "updatedAt": "2023-02-04T11:02:01.887Z",
+        "publishedAt": "2023-02-04T11:02:01.882Z",
+        "email": "scott@sas.com",
+        "social": [
+          {
+            "id": 7,
+            "link": "https://www.linkedin.com/in/scottthompsonpwc/",
+            "media": "Linkedin"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "attributes": {
+        "name": "Ryan Hawk",
+        "role": "Global Industrial Manufacturing & Automotive Leader, PwC United States",
+        "tel": "+1 312 543 4098",
+        "photo": "/images/staff/ryan-hawk.jpg.pwcimage.105.105.jpg",
+        "createdAt": "2023-02-04T10:54:56.768Z",
+        "updatedAt": "2023-02-04T11:02:06.169Z",
+        "publishedAt": "2023-02-04T11:02:06.166Z",
+        "email": "ryna@sas.com",
+        "social": [
+          {
+            "id": 1,
+            "link": "https://www.linkedin.com/in/ryan-hawk-7b547825/",
+            "media": "Linkedin"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "name": "John Livingstone",
+        "role": "Global Industrial Manufacturing & Automotive Tax Leader, PwC United States",
+        "tel": null,
+        "photo": "/images/staff/pwc-john-livingstone.jpg.pwcimage.105.105.jpg",
+        "createdAt": "2023-02-04T10:58:44.106Z",
+        "updatedAt": "2023-02-04T11:02:15.320Z",
+        "publishedAt": "2023-02-04T11:02:15.316Z",
+        "email": "john@sas.com",
+        "social": [
+          {
+            "id": 4,
+            "link": "https://www.linkedin.com/in/john-livingstone-86484174/",
+            "media": "Linkedin"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "name": "Jeff Sorensen",
+        "role": "Global Industrial Manufacturing & Automotive Assurance Leader, PwC United States",
+        "tel": null,
+        "photo": "/images/staff/pwc-jeff-sorensen-headshot.jpg.pwcimage.105.105.jpg",
+        "createdAt": "2023-02-04T10:57:31.628Z",
+        "updatedAt": "2023-02-04T11:02:19.488Z",
+        "publishedAt": "2023-02-04T11:02:19.484Z",
+        "email": "jeff@sas.com",
+        "social": [
+          {
+            "id": 2,
+            "link": "https://www.linkedin.com/in/jeffsorensenpwc/",
+            "media": "Linkedin"
+          },
+          {
+            "id": 3,
+            "link": "https://twitter.com/JeffDSorensen",
+            "media": "Twitter"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "name": "Paul Harvey",
+        "role": "Global Industrial Manufacturing & Automotive Executive, PwC United Kingdom",
+        "tel": "+44 7738 845 605",
+        "photo": "/images/staff/paul-harvey.jpg.pwcimage.105.105.jpg",
+        "createdAt": "2023-02-04T10:59:55.594Z",
+        "updatedAt": "2023-02-04T11:04:51.275Z",
+        "publishedAt": "2023-02-04T11:02:10.654Z",
+        "email": "paul@sas.com",
+        "social": [
+          {
+            "id": 5,
+            "link": "https://www.linkedin.com/in/psharvey",
+            "media": "Linkedin"
+          },
+          {
+            "id": 6,
+            "link": "https://www.pwc.com/gx/en/industries/@paul_harvey",
+            "media": "Twitter"
+          }
+        ]
+      }
+    }
+  ]
+}

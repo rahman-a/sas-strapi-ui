@@ -1,0 +1,74 @@
+@use '@styles/media' as media;
+.form {
+  position: relative;
+  padding-top: 3rem;
+  &__notice {
+    &_required {
+      font-size: small;
+      margin: 3rem 0;
+      span {
+        color: var(--error-color);
+      }
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1rem;
+    background-color: var(--error-color);
+  }
+
+  &__details {
+    margin-top: 5rem;
+    label {
+      font: var(--headline-small-text);
+      color: var(--container-color-80);
+      text-transform: capitalize;
+    }
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      font: var(--body-text-regular);
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    @include media.breakpoint(md) {
+      flex-direction: column;
+    }
+  }
+  &__col {
+    width: 50%;
+    & > fieldset:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+    @include media.breakpoint(md) {
+      width: 100%;
+    }
+  }
+
+  &__disclaimer {
+    font-size: 1.2rem;
+    color: var(--primary-text-color);
+    margin: 3rem 0;
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid;
+    }
+  }
+
+  &__error {
+    background-color: var(--error-container-color);
+    color: var(--error-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "panels": [
+    {
+      "id": 3,
+      "title": "industries",
+      "navigation": {
+        "id": 3,
+        "title": "industries",
+        "links": [
+          {
+            "id": 11,
+            "label": "See all industries",
+            "href": "/industries",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 12,
+            "label": "Aerospace, defense & security",
+            "href": "/industries/aerospace-defense",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 13,
+            "label": "Automotive",
+            "href": "/industries/automotive",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 14,
+            "label": "Capital projects & infrastructure",
+            "href": "/industries/capital-projects-infrastructure",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 15,
+            "label": "Energy, utilities & resources",
+            "href": "/industries/energy-utilities-resources",
+            "target": null,
+            "submenu": [
+              {
+                "id": 12,
+                "label": "Chemicals",
+                "href": "/industries/energy-utilities-resources/chemicals",
+                "target": null
+              },
+              {
+                "id": 13,
+                "label": "Mining & Metals",
+                "href": "/industries/energy-utilities-resources/mining-metals",
+                "target": null
+              },
+              {
+                "id": 14,
+                "label": "Oil & gas",
+                "href": "/industries/energy-utilities-resources/oil-gas",
+                "target": null
+              },
+              {
+                "id": 15,
+                "label": "Power & utilities",
+                "href": "/industries/energy-utilities-resources/power-utilities",
+                "target": null
+              }
+            ]
+          }
+        ]
+      },
+      "featured": {
+        "id": 3,
+        "title": "Featured",
+        "cards": [
+          {
+            "id": 7,
+            "text": "Global Consumer Insights Pulse Survey - June 2022",
+            "href": "/industries/consumer-markets/consumer-insights-survey",
+            "image": "/images/dam.thumbnail.webp",
+            "target": null
+          },
+          {
+            "id": 8,
+            "text": "Achieving net zero infrastructure",
+            "href": "/industries/capital-projects-infrastructure/publications/achieving-net-zero-infrastructure",
+            "image": "/images/dam2.thumbnail.webp",
+            "target": null
+          },
+          {
+            "id": 9,
+            "text": "Manufacturing COO Pulse Survey",
+            "href": "/industries/industrial-manufacturing/coo-pulse-survey",
+            "image": "/images/dam3.thumbnail.webp",
+            "target": null
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "services",
+      "navigation": {
+        "id": 4,
+        "title": "services",
+        "links": [
+          {
+            "id": 16,
+            "label": "See all services",
+            "href": "/services",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 17,
+            "label": "Alliances and Ecosystems",
+            "href": "/services/alliances",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 18,
+            "label": "Crisis management",
+            "href": "/services/crisis-solutions",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 19,
+            "label": "Entrepreneurial and private business",
+            "href": "/services/entrepreneurial-private-business",
+            "target": null,
+            "submenu": []
+          },
+          {
+            "id": 20,
+            "label": "Audit and assurance services",
+            "href": "/services/audit-assurance",
+            "target": null,
+            "submenu": [
+              {
+                "id": 16,
+                "label": "Actuarial services",
+                "href": "/services/audit-assurance/accounting-advisory",
+                "target": null
+              },
+              {
+                "id": 17,
+                "label": "Capital markets",
+                "href": "/services/audit-assurance/capital-market",
+                "target": null
+              },
+              {
+                "id": 18,
+                "label": "Corporate reporting",
+                "href": "/services/audit-assurance/corporate-reporting",
+                "target": null
+              },
+              {
+                "id": 19,
+                "label": "Financial audit",
+                "href": "/services/audit-assurance/the-sas-audit",
+                "target": null
+              },
+              {
+                "id": 20,
+                "label": "IFRS",
+                "href": "/services/audit-assurance/ifrs-reporting",
+                "target": null
+              },
+              {
+                "id": 21,
+                "label": "Internal audit",
+                "href": "/services/audit-assurance/the-sas-audit",
+                "target": null
+              },
+              {
+                "id": 22,
+                "label": "Risk assurance",
+                "href": "/services/audit-assurance/risk-assurance",
+                "target": null
+              }
+            ]
+          }
+        ]
+      },
+      "featured": {
+        "id": 4,
+        "title": "Featured",
+        "cards": [
+          {
+            "id": 10,
+            "text": "Ukraine: Tax, Legal and People considerations",
+            "href": "/services/tax/tax-legal-people-considerations-ukraine-russia",
+            "image": "/images/dam4.thumbnail.webp",
+            "target": null
+          },
+          {
+            "id": 11,
+            "text": "Digital Trust Insights Survey 2022",
+            "href": "/issues/cybersecurity/digital-trust-insights-2021",
+            "image": "/images/dam5.thumbnail.webp",
+            "target": null
+          },
+          {
+            "id": 12,
+            "text": "M&A industry trends report ",
+            "href": "/services/deals/trends",
+            "image": "/images/dam6.thumbnail.webp",
+            "target": null
+          }
+        ]
+      }
+    }
+  ]
+}

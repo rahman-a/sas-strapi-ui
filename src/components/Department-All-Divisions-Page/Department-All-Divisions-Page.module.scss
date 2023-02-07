@@ -1,0 +1,63 @@
+@use '@styles/media' as media;
+
+.services {
+  &__title {
+    font: var(--title-text-large-medium);
+    color: var(--primary-color);
+    margin: 1rem;
+  }
+  &__cards {
+    gap: 1rem;
+  }
+  &__details {
+    p {
+      width: 65%;
+      @include media.breakpoint(sm) {
+        width: 95%;
+      }
+    }
+    p:first-of-type {
+      margin-bottom: 2rem;
+    }
+    p:nth-of-type(2) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__items {
+    padding: 5rem 0;
+    h2 {
+      color: var(--primary-color-dark);
+    }
+  }
+  &__footer {
+    a {
+      text-decoration: none;
+    }
+    h2,
+    p {
+      font: var(--display-small-text);
+      color: var(--primary-text-color);
+    }
+    p {
+      margin-top: 5rem;
+    }
+    button {
+      font-size: 1.8rem;
+      span {
+        right: 0rem;
+        svg {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+    &:hover button {
+      color: var(--primary-color);
+      text-decoration: underline;
+      span {
+        transform: translateX(0.5rem);
+      }
+    }
+  }
+}

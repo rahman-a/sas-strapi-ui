@@ -1,0 +1,12 @@
+@use '../../../styles/media' as media;
+
+.logo {
+  position: relative;
+  width: 5rem;
+  z-index: 999;
+  &__hidden {
+    @include media.breakpoint(md) {
+      display: none;
+    }
+  }
+}

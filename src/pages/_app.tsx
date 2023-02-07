@@ -1,6 +1,54 @@
-import '@/styles/globals.css'
+import '../styles/globals.scss'
+import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
+import { Layout } from '../components'
+import fetcher from '@lib/api'
+import { Menu } from '@customTypes/Menu'
+import { Footer } from '@customTypes/Footer'
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+let headerCachedData: Menu | null = null
+let footerCachedData: Footer | null = null
+
+interface IProps extends AppProps {
+  menu: Menu
+  footer: Footer
 }
+
+function MyApp({ Component, pageProps, menu, footer }: IProps) {
+  useEffect(() => {
+    !headerCachedData && (headerCachedData = menu)
+    !footerCachedData && (footerCachedData = footer)
+  }, [])
+  return (
+    <Layout menu={menu} footer={footer}>
+      <Component {...pageProps} />
+    </Layout>
+  )
+}
+
+MyApp.getInitialProps = async (ctx: any) => {
+  if (headerCachedData && footerCachedData) {
+    return {
+      menu: headerCachedData,
+      footer: footerCachedData,
+    }
+  }
+  const menu = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/menu?populate=deep`
+  )
+  const footerResponse = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/footer?populate=deep`
+  )
+  const footer = {
+    id: footerResponse.data.id,
+    mainLinks: footerResponse.data.attributes.mainLinks,
+    legalLinks: footerResponse.data.attributes.legalLinks,
+    icon: `${process.env.NEXT_PUBLIC_STRAPI_API}${footerResponse.data.attributes.logo.data.attributes.url}`,
+  }
+  return {
+    menu: menu.data.attributes.panels,
+    footer,
+  }
+}
+
+export default MyApp

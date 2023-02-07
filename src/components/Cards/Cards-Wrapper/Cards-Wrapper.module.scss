@@ -1,0 +1,26 @@
+@use '../../../styles/media' as media;
+.cards {
+  & > h3 {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    @include media.breakpoint(md) {
+      margin-left: 1rem;
+    }
+  }
+  &__container {
+    width: 100%;
+    overflow: hidden;
+    @include media.breakpoint(md) {
+      overflow: auto;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    @include media.breakpoint(md) {
+      width: fit-content;
+    }
+  }
+}

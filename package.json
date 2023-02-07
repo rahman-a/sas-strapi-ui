@@ -10,14 +10,32 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@react-google-maps/api": "^2.18.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "classnames": "^2.3.2",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "html-react-parser": "^3.0.8",
+    "markdown-it": "^13.0.1",
     "next": "13.1.6",
+    "next-seo": "^5.15.0",
     "react": "18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.5"
+    "react-intersection-observer": "^9.4.1",
+    "react-loader-spinner": "^5.3.4",
+    "react-player": "^2.11.0",
+    "sharp": "^0.31.3",
+    "simplebar-react": "^3.2.0",
+    "typescript": "4.9.5",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/react-copy-to-clipboard": "^5.0.4",
+    "@types/uuid": "^9.0.0",
+    "sass": "^1.58.0"
   }
 }

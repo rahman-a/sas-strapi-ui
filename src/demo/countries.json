@@ -1,0 +1,93 @@
+[
+  {
+    "id": 2,
+    "attributes": {
+      "name": "India",
+      "abbr": "in",
+      "link": "/in",
+      "lat": 20,
+      "lng": 77,
+      "createdAt": "2023-02-04T11:11:24.507Z",
+      "updatedAt": "2023-02-04T11:11:27.245Z",
+      "publishedAt": "2023-02-04T11:11:27.240Z"
+    }
+  },
+  {
+    "id": 1,
+    "attributes": {
+      "name": "Egypt",
+      "abbr": "eg",
+      "link": "/eg",
+      "lat": 27,
+      "lng": 30,
+      "createdAt": "2023-02-04T11:10:53.529Z",
+      "updatedAt": "2023-02-04T11:11:30.517Z",
+      "publishedAt": "2023-02-04T11:11:30.513Z"
+    }
+  },
+  {
+    "id": 3,
+    "attributes": {
+      "name": "Pakistan",
+      "abbr": "pk",
+      "link": "/pk",
+      "lat": 30,
+      "lng": 70,
+      "createdAt": "2023-02-04T11:12:07.302Z",
+      "updatedAt": "2023-02-04T11:12:09.839Z",
+      "publishedAt": "2023-02-04T11:12:09.834Z"
+    }
+  },
+  {
+    "id": 4,
+    "attributes": {
+      "name": "Saudi Arabia",
+      "abbr": "sa",
+      "link": "/sa",
+      "lat": 25,
+      "lng": 45,
+      "createdAt": "2023-02-04T11:12:43.010Z",
+      "updatedAt": "2023-02-04T11:12:44.256Z",
+      "publishedAt": "2023-02-04T11:12:44.252Z"
+    }
+  },
+  {
+    "id": 5,
+    "attributes": {
+      "name": "Turkey",
+      "abbr": "tr",
+      "link": "/tr",
+      "lat": 39,
+      "lng": 35,
+      "createdAt": "2023-02-04T11:13:11.166Z",
+      "updatedAt": "2023-02-04T11:13:12.361Z",
+      "publishedAt": "2023-02-04T11:13:12.358Z"
+    }
+  },
+  {
+    "id": 6,
+    "attributes": {
+      "name": "United Arab Emirates",
+      "abbr": "uae",
+      "link": "/uae",
+      "lat": 24,
+      "lng": 54,
+      "createdAt": "2023-02-04T11:13:41.405Z",
+      "updatedAt": "2023-02-04T11:13:42.510Z",
+      "publishedAt": "2023-02-04T11:13:42.505Z"
+    }
+  },
+  {
+    "id": 7,
+    "attributes": {
+      "name": "global",
+      "abbr": null,
+      "link": "/",
+      "lat": null,
+      "lng": null,
+      "createdAt": "2023-02-04T13:25:03.481Z",
+      "updatedAt": "2023-02-04T13:25:31.708Z",
+      "publishedAt": "2023-02-04T13:25:31.703Z"
+    }
+  }
+]
