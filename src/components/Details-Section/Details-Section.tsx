@@ -57,7 +57,12 @@ const DetailsSection: FunctionComponent<DetailsSectionProps> = ({
               {parse(data?.content as string)}
             </div>
             {data?.link && (
-              <Button style={{ marginTop: '3rem' }} {...btnProps}>
+              <Button
+                as='a'
+                href={data.link || ''}
+                style={{ marginTop: '1rem', display: 'inline-block' }}
+                {...btnProps}
+              >
                 {data.label}
               </Button>
             )}

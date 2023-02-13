@@ -34,24 +34,19 @@ const CareerSearch = () => {
     if (inputRef.current?.value) {
       data = { ...data, role: inputRef.current?.value }
     }
-    console.log(data)
   }
-
-  useEffect(() => {
-    console.log(filterData)
-  }, [filterData])
   return (
     <div className={styles.search}>
       <div className={styles.search__wrapper}>
         <div className={styles.search__col}>
-          <Select
+          {/* <Select
             options={countries}
             onSelectHandler={(value) =>
               setFilterData({ ...filterData, country: value.value })
             }
             label='Select a country or region'
             required
-          />
+          /> */}
           <Button variant='dark-primary'>View all jobs</Button>
         </div>
         <div className={styles.search__col}>

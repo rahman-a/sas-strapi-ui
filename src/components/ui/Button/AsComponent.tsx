@@ -5,9 +5,6 @@ import { ButtonType } from '@customTypes/Button'
 type props = ButtonType
 
 const AsComponent: FunctionComponent<props> = (props) => {
-  useEffect(() => {
-    console.log('props-button', props)
-  }, [props])
   if (props.as === 'a') {
     return (
       <Link href={props.href!} {...props}>

@@ -2,6 +2,8 @@ import { HeroSection } from './Hero-Section'
 import { Card } from './Section'
 import { Data } from './Details-Section'
 import { Links } from './Menu'
+import { StaffData } from './Staff'
+import { TabbedInterface, TabbedNavbar, TabFiltered } from './Tabbed'
 export type CarouselItem = {
   id: number
   title: string
@@ -22,6 +24,14 @@ export type Announcement = {
   title: string
   button: string
   href: string
+}
+
+export type WebTile = {
+  id: number
+  title: string
+  subtitle: string
+  link: string
+  icon: string
 }
 
 export type SocialPlatform = {
@@ -50,4 +60,54 @@ export interface Division {
   }
   textBlock: Data
   footer: Data
+}
+
+export interface IndustryPageLayout {
+  id: number
+  heroSection: HeroSection
+  textBlock: Data
+  tabbedInterface: TabbedInterface
+  textBlock2: Data
+  featured: {
+    title: string
+    cards: Card[]
+  }
+  insights: {
+    title: string
+    cards: Card[]
+  }
+  staff: StaffData[]
+}
+
+export interface ServicePageLayout {
+  id: number
+  heroSection: HeroSection
+  textBlock: Data
+  tabbedNavbar: TabbedNavbar
+  textBlock2: Data
+  featured: {
+    title: string
+    cards: Card[]
+  }
+  insights: {
+    title: string
+    cards: Card[]
+  }
+  webTile: WebTile
+  staff: StaffData[]
+}
+
+export interface IssuePageLayout {
+  id: number
+  heroSection: HeroSection
+  textBlock: Data
+  textBlock2: Data
+  textBlock3: Data
+  detailedCards: {
+    id: number
+    title: string
+    cards: Card[]
+  }
+  filteredList: TabFiltered
+  staff: StaffData[]
 }

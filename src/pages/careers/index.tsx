@@ -1,77 +1,101 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styles from '@styles/pages/careers.module.scss'
 import { CareerHeroSection, DetailsSection, WebTile } from '@components'
-import { Section } from '@components/Layout'
-import { MeetCard } from '@components/Cards'
 import { ImageCube } from '@components/ui'
-import careerSection from '@data/career-section.json'
-import meetData from '@data/meet-cards.json'
-import { Data } from '@customTypes/Details-Section'
+import { TeamPresentation } from '@components'
+import MarkdownIt from 'markdown-it'
+import fetcher from '@lib/api'
+import { NextSeo } from 'next-seo'
+import { Section } from '@components/Layout'
 
-const meetSection = {
-  _id: '5f9f1b9b9b9b9b9b9b9b9b9b',
-  title: 'Meet the team',
-  description:
-    '<p>The New Equation starts with passion. The passion from people like you. People who see things a little differently, and seek unexpected answers to some of the world’s toughest challenges. Unique individuals who are led by their own humanity, so they can help solve for society.</p> <p>Meet our solvers.</p>',
-}
-
-const tile = {
-  title: 'Build your career at SAS',
-  description: 'Search for a job',
-  icon: '/images/icons/explore-white.webp',
-  link: '/careers',
-}
-
-const Career = () => {
-  const renderDetailsSection = (index: number, data: Data) => {
-    if (index === 1) {
-      return (
-        <Section
-          key={data._id}
-          style={{ backgroundColor: 'var(--background-color)' }}
-        >
-          <DetailsSection data={data}>
-            <ImageCube />
-          </DetailsSection>
-        </Section>
-      )
-    }
-    return (
-      <Section key={data._id}>
-        <DetailsSection data={data} reverse />
-      </Section>
-    )
+interface CareerProps {
+  meta: {
+    title: string
+    description: string
   }
+  blocks: any
+}
+
+const Career = ({ meta, blocks }: CareerProps) => {
   return (
-    <div className={styles.careers}>
-      <CareerHeroSection />
-      {careerSection.map((section, index) =>
-        renderDetailsSection(index, section)
-      )}
-      <section className={styles.careers__meet}>
-        <div className={styles.careers__meet_row}>
-          <div className={styles.careers__meet_col}>
-            <div className={styles.careers__float}>
-              <span className={styles['careers__float--1']}></span>
-              <span className={styles['careers__float--2']}></span>
-              <span className={styles['careers__float--3']}></span>
-              <span className={styles['careers__float--4']}></span>
-            </div>
-            <DetailsSection
-              data={meetSection}
-              className={styles.careers__meet_description}
-            />
-          </div>
-          {meetData.map((data) => (
-            <div key={data._id} className={styles.careers__meet_col}>
-              <MeetCard card={data} />
-            </div>
-          ))}
-        </div>
-      </section>
-      <WebTile tile={tile} style={{ margin: '2rem 0' }} />
-    </div>
+    <>
+      <NextSeo title={meta.title} description={meta.description} />
+      <div className={styles.careers}>
+        {blocks.map((block: any) => {
+          if (block.__component === 'global.career-hero-section') {
+            return <CareerHeroSection key={block.id} data={block} />
+          }
+          if (block.__component === 'global.text-block') {
+            return (
+              <Section
+                key={block.id}
+                style={{
+                  backgroundColor: block.cubic ? 'var(--background-color)' : '',
+                }}
+              >
+                <DetailsSection data={block} reverse={block.video}>
+                  {block.cubic ? (
+                    <ImageCube key={block.cubic.id} images={block.cubic} />
+                  ) : null}
+                </DetailsSection>
+              </Section>
+            )
+          }
+          if (block.__component === 'global.team-presentation') {
+            return <TeamPresentation key={block.id} team={block} />
+          }
+          if (block.__component === 'global.web-tile') {
+            return (
+              <WebTile
+                key={block.id}
+                tile={block}
+                style={{ margin: '0.5rem' }}
+              />
+            )
+          }
+        })}
+      </div>
+    </>
   )
+}
+
+export const getStaticProps = async () => {
+  const response = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/career?populate=deep`
+  )
+  const data = response.data.attributes
+  const blocks = data.Blocks?.map((block: any) => {
+    if (block.__component === 'global.text-block') {
+      return {
+        ...block,
+        content: MarkdownIt({ html: true }).render(block.content),
+      }
+    }
+    if (block.__component === 'global.team-presentation') {
+      return {
+        ...block,
+        content: MarkdownIt({ html: true }).render(block.content),
+      }
+    }
+    if (block.__component === 'global.web-tile') {
+      return {
+        ...block,
+        icon: `${process.env.NEXT_PUBLIC_STRAPI_API}${block.icon.data.attributes.url}`,
+      }
+    }
+    return block
+  })
+
+  const meta = {
+    title: data.title,
+    description: data.description,
+  }
+  return {
+    props: {
+      meta,
+      blocks,
+    },
+  }
 }
 
 export default Career

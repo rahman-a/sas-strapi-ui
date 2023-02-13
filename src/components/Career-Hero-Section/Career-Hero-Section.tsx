@@ -2,7 +2,19 @@ import { Button } from '@components/ui'
 import React from 'react'
 import styles from './Career-Hero-Section.module.scss'
 
-const CareerHeroSection = () => {
+interface CareerHeroSectionProps {
+  data: {
+    title: string
+    subtitle: string
+    content: string
+    subtitleBold: string
+    link: string
+    label: string
+    backgroundImage: string
+  }
+}
+
+const CareerHeroSection = ({ data }: CareerHeroSectionProps) => {
   return (
     <section className={styles.hero}>
       <div className={styles.hero__row}>
@@ -18,26 +30,20 @@ const CareerHeroSection = () => {
         <div className={styles.hero__col}>
           <div className={styles.hero__overlay}></div>
           <div className={styles.hero__content}>
-            <span className={styles.hero__category}>Career with SAS</span>
-            <h1 className={styles.hero__title}>
-              Join our community of solvers
-            </h1>
-            <p className={styles.hero__description}>
-              You’re an analyst. An economist. A technologist. An accountant. An
-              innovator. A storyteller. At SAS, you’ll join an unexpected mix of
-              people coming together to build trust in society and solve
-              important problems.
-            </p>
+            <span className={styles.hero__category}>{data.subtitle}</span>
+            <h1 className={styles.hero__title}>{data.title}</h1>
+            <p className={styles.hero__description}>{data.content}</p>
             <strong className={styles.hero__subtitle}>
-              Be a part of our team
+              {data.subtitleBold}
             </strong>
             <Button
               as='a'
               icon='thick-arrow'
+              href={data.link || '/careers/job-search'}
               variant='text'
               className={styles.hero__cta}
             >
-              Find your career with SAS
+              {data.label}
             </Button>
           </div>
         </div>

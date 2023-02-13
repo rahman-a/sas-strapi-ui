@@ -1,22 +1,24 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, useEffect, useState } from 'react'
 import styles from './Filtered-List.module.scss'
 import { Button } from '@components/ui'
 import Link from 'next/link'
-import { FilteredList, List } from '@customTypes/Filtered-List'
+import { TabFiltered, TabFilteredItem } from '@customTypes/Tabbed'
 
 interface FilteredListProps {
-  data: FilteredList
+  data: TabFiltered
 }
 
 const FilteredList: FunctionComponent<FilteredListProps> = ({ data }) => {
-  const [content, setContent] = useState<List>(data.list[0])
+  const [content, setContent] = useState<TabFilteredItem | null>(() =>
+    data.tabs.length ? data.tabs[0] : null
+  )
   return (
     <div className={styles.filter}>
       <h2 className={styles.filter__title}>{data.title}</h2>
       <div className={styles.filter__tabs}>
-        {data.list.map((tab) => (
+        {data.tabs.map((tab) => (
           <Button
-            key={tab._id}
+            key={tab.id}
             variant='gray-outlined'
             rounded
             className={styles.filter__tab}
@@ -30,9 +32,9 @@ const FilteredList: FunctionComponent<FilteredListProps> = ({ data }) => {
         <div className={styles.filter__content}>
           <h3 className={styles.filter__content_title}>{content.title}</h3>
           <ul className={styles.filter__list}>
-            {content.items.map((item) => (
-              <li key={item._id} className={styles.filter__item}>
-                <Link href={item.url || ''}>{item.item}</Link>
+            {content.links.map((link) => (
+              <li key={link.id} className={styles.filter__item}>
+                <Link href={link.href || ''}>{link.label}</Link>
               </li>
             ))}
           </ul>

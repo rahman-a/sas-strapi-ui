@@ -2,7 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'admin.sas-partner.ae'],
+  },
+  i18n: {
+    locales: ['en', 'ar'], // Add your languages here
+    defaultLocale: 'en',
+    localeDetection: false,
   },
 }
 

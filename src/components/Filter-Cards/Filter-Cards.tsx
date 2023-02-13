@@ -9,6 +9,7 @@ import Tabs from './Tabs'
 import classnames from 'classnames'
 import { CardsWrapper, PopularCard } from '@components/Cards'
 import sectionsData from '@data/sections.json'
+import { Card } from '@customTypes/Section'
 
 const card = {
   _id: '907d16c34995fcccc1943ddb52000363',
@@ -21,6 +22,7 @@ const card = {
 
 interface FilterCardsProps {
   list: FilterList
+  cards: Card[]
   className?: string
   style?: React.CSSProperties
   title?: string
@@ -28,6 +30,7 @@ interface FilterCardsProps {
 
 const FilterCards: FunctionComponent<FilterCardsProps> = ({
   list,
+  cards,
   className,
   style,
   title,
@@ -129,10 +132,10 @@ const FilterCards: FunctionComponent<FilterCardsProps> = ({
           </div>
           <div className={styles.filter__result_cards}>
             <CardsWrapper>
-              {sectionsData.sections[0].cards.map((section) => (
+              {cards.map((card: Card) => (
                 <PopularCard
-                  key={section._id}
-                  card={section}
+                  key={card.id}
+                  card={card}
                   className={styles.filter__result_card}
                 />
               ))}

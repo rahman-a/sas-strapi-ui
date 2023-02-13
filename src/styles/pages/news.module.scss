@@ -37,4 +37,15 @@
       }
     }
   }
+
+  &__card {
+    width: 29rem;
+    @include media.breakpoint(xxs) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    a {
+      color: var(--primary-color-dark);
+    }
+  }
 }

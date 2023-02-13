@@ -1,62 +1,83 @@
 import React from 'react'
 import styles from '@styles/pages/legal-notices.module.scss'
-import { HeroSection, DetailsSection, WebTile, SocialMedia } from '@components'
+import { HeroSection, DetailsSection, WebTile } from '@components'
 import { CardsWrapper, FeatureCard, AdvantageCard } from '@components/Cards'
 import { Section } from '@components/Layout'
-import featureCards from '@data/featured-legal.json'
+import fetcher from '@lib/api'
+import MarkdownIt from 'markdown-it'
+import { NextSeo } from 'next-seo'
 
-const heroData = {
-  _id: '5f9f1b9b9b9b9b9b9b9b9b9b',
-  title: 'Legal notices',
-  text: 'SAS is committed to protecting the data you provide to us and making it easy to find the information you need.',
-  image: '/images/legal-notices-site-hero.webp',
-  'short-url': 'https://sas.to/39JS1z0',
-}
-
-const details = {
-  _id: '5f9f1b9b9b9b9b9b9b9b9b9b',
-  title: 'Protecting the data you provide to us',
-  description: `<p>Privacy policies, terms and conditions, cookie disclosures - it can all be a bit confusing. We’ve created this page to make it easy to find the information you need about what data we gather, how we use it, how we keep it safe and what your responsibilities are as a user when browsing across SAS websites. Please note that except for our privacy statement the legal notices contained on this page only apply to those SAS websites and marketing emails that link to these legal notices. Our privacy statement applies to a range of processing activities, as explained in the privacy statement.</p>`,
-}
-
-const tileData = {
-  title: 'Contact us',
-  description: 'About privacy and legal issues',
-  icon: '/images/icons/icon_write.webp',
-  link: '/legal-notices/privacy-policy#contact',
-}
-
-const LegalNotices = () => {
+const LegalNotices = ({ layout, meta }: any) => {
   return (
-    <div className={styles.legal}>
-      <HeroSection data={heroData} className={styles.legal__hero} />
-      <h2 className={styles.legal__title}>Feature</h2>
-      <CardsWrapper className={styles.legal__cards}>
-        {featureCards.features.map((card) => (
-          <FeatureCard key={card._id} card={card} />
-        ))}
-      </CardsWrapper>
-      <Section style={{ textAlign: 'center' }}>
-        <DetailsSection data={details} id='legal-notices' />
-      </Section>
-      <Section
-        className={styles.legal__explore}
-        style={{ backgroundColor: 'var(--background-color)' }}
-      >
-        <div className={styles.legal__explore_cards}>
-          {featureCards.types.map((item) => (
-            <AdvantageCard
-              key={item._id}
-              card={item}
-              className={styles.legal__explore_card}
-            />
+    <>
+      <NextSeo title={meta.title} description={meta.description} />
+      <div className={styles.legal}>
+        <HeroSection data={layout.heroSection} className={styles.legal__hero} />
+        <h2 className={styles.legal__title}>{layout.featured.title}</h2>
+        <CardsWrapper className={styles.legal__cards}>
+          {layout.featured.cards.map((card: any) => (
+            <FeatureCard key={card.id} card={card} />
           ))}
-        </div>
-      </Section>
-      <WebTile tile={tileData} />
-      <SocialMedia />
-    </div>
+        </CardsWrapper>
+        <Section style={{ textAlign: 'center' }}>
+          <DetailsSection data={layout.textBlock} id='legal-notices' />
+        </Section>
+        <Section
+          className={styles.legal__explore}
+          style={{ backgroundColor: 'var(--background-color)' }}
+        >
+          <div className={styles.legal__explore_cards}>
+            {layout.legal.cards.map((item: any) => (
+              <AdvantageCard
+                key={item.id}
+                card={item}
+                className={styles.legal__explore_card}
+              />
+            ))}
+          </div>
+        </Section>
+        <WebTile tile={layout.contact} />
+      </div>
+    </>
   )
+}
+
+export const getStaticProps = async () => {
+  const response = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/legal-notice?populate=deep`
+  )
+  const data = response.data.attributes
+  const meta = {
+    title: data.title,
+    description: data.description,
+  }
+  const layout = {
+    id: response.data.id,
+    heroSection: data.HeroSection,
+    featured: {
+      title: data.FeaturedCards.title,
+      cards: data.FeaturedCards.cards,
+    },
+    textBlock: {
+      ...data.TextBlock,
+      content: MarkdownIt({ html: true }).render(data.TextBlock.content),
+    },
+    legal: {
+      title: data.legalCards.title,
+      cards: data.legalCards.cards,
+    },
+    contact: {
+      ...data.contactTile,
+      icon: `${process.env.NEXT_PUBLIC_STRAPI_API}${data.contactTile.icon.data?.attributes?.url}`,
+    },
+  }
+
+  return {
+    props: {
+      meta,
+      layout,
+    },
+  }
 }
 
 export default LegalNotices

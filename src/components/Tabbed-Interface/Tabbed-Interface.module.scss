@@ -78,6 +78,16 @@
     width: fit-content;
   }
 
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    @include media.breakpoint(xs) {
+      gap: 1rem;
+    }
+  }
+
   &__separator {
     display: none;
     width: 100%;

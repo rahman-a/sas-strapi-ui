@@ -1,15 +1,7 @@
 import Image from 'next/image'
 import React, { FunctionComponent } from 'react'
 import styles from './Advantage-Card.module.scss'
-
-type Card = {
-  _id: string
-  title: string
-  text: string
-  image?: string
-  url: string
-}
-
+import { Card } from '@customTypes/Section'
 interface AdvantageCardProps {
   card: Card
   className?: string
@@ -21,7 +13,7 @@ const AdvantageCard: FunctionComponent<AdvantageCardProps> = ({
 }) => {
   return (
     <article className={`${styles.card} ${className ? className : ''}`}>
-      <a href={card.url} className={styles.card__wrapper}>
+      <a href={card.link || ''} className={styles.card__wrapper}>
         {card.image && (
           <figure className={styles.card__image}>
             <Image src={card.image} alt='Advantage card' fill />
@@ -29,7 +21,7 @@ const AdvantageCard: FunctionComponent<AdvantageCardProps> = ({
         )}
         <div className={styles.card__content}>
           <h3 className={styles.card__title}>{card.title}</h3>
-          <p className={styles.card__text}>{card.text}</p>
+          <p className={styles.card__text}>{card.content}</p>
         </div>
       </a>
     </article>

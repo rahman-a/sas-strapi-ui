@@ -90,14 +90,18 @@ const TermsAndConditions = () => {
                 to the SAS network and/or one or more of its Member Firms. Each
                 Member Firm in the SAS network is a separate legal entity. For
                 further details, please see
-                <Link href='/about/network-structure'>
-                  <a className={styles.legal__link}>www.sas.com/structure.</a>
+                <Link
+                  className={styles.legal__link}
+                  href='/about/network-structure'
+                >
+                  www.sas.com/structure.
                 </Link>
                 See
-                <Link href='/about/office-locations'>
-                  <a className={styles.legal__link}>
-                    http://www.sas.com/about/office-locations
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  href='/about/office-locations'
+                >
+                  http://www.sas.com/about/office-locations
                 </Link>
                 for a list of countries in which SAS Member Firms operate.
               </p>
@@ -282,8 +286,8 @@ const TermsAndConditions = () => {
                 You will use the Websites only for lawful purposes. If at any
                 time you become aware of any violation, by any person or entity,
                 of any part of these Terms, you will immediately notify us
-                <Link href='#'>
-                  <a className={styles.legal__link}>via this contact form</a>
+                <Link href='#' className={styles.legal__link}>
+                  via this contact form
                 </Link>
                 and provide us with assistance, as requested, to stop or remedy
                 such violation.
@@ -489,8 +493,11 @@ const TermsAndConditions = () => {
               <h3 className={subheaderClasses}>Privacy of Registered Users</h3>
               <p className={styles.legal__par}>
                 Our
-                <Link href='/legal-notices/privacy-policy'>
-                  <a className={styles.legal__link}>Privacy statement</a>
+                <Link
+                  className={styles.legal__link}
+                  href='/legal-notices/privacy-policy'
+                >
+                  Privacy statement
                 </Link>
                 explains how we protect and use your personal information; the
                 Registered User section of the Privacy statement explains
@@ -935,8 +942,11 @@ const TermsAndConditions = () => {
                 <li className={styles.legal__item}>
                   by you to us will be deemed to have been effectively and
                   validly given only if in writing and delivered or submitted
-                  <Link href='/legal-notices/contact-form'>
-                    <a className={styles.legal__link}>via this contact form</a>
+                  <Link
+                    className={styles.legal__link}
+                    href='/legal-notices/contact-form'
+                  >
+                    via this contact form
                   </Link>
                 </li>
               </ul>
@@ -992,9 +1002,7 @@ const TermsAndConditions = () => {
           <div className={styles.legal__related}>
             <article className={styles.legal__card}>
               <h2 className={styles.legal__card_title}>
-                <Link href='/legal-notices/cookie-policy'>
-                  <a>Cookie policy</a>
-                </Link>
+                <Link href='/legal-notices/cookie-policy'>Cookie policy</Link>
               </h2>
               <p className={styles.legal__card_par}>
                 Our cookie policy gives information about the cookies that we
@@ -1004,7 +1012,7 @@ const TermsAndConditions = () => {
             <article className={styles.legal__card}>
               <h2 className={styles.legal__card_title}>
                 <Link href='/legal-notices/legal-disclaimer'>
-                  <a>Legal disclaimer</a>
+                  Legal disclaimer
                 </Link>
               </h2>
               <p className={styles.legal__card_par}>
@@ -1016,7 +1024,7 @@ const TermsAndConditions = () => {
             <article className={styles.legal__card}>
               <h2 className={styles.legal__card_title}>
                 <Link href='/legal-notices/privacy-policy'>
-                  <a>Our privacy commitment</a>
+                  Our privacy commitment
                 </Link>
               </h2>
               <p className={styles.legal__card_par}>

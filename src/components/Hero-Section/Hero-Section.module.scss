@@ -4,6 +4,8 @@
   position: relative;
   height: 45rem;
   color: var(--primary-text-color-light);
+  background-position: center !important;
+  background-size: cover !important;
   @include media.breakpoint(xs) {
     background: var(--primary-color);
   }

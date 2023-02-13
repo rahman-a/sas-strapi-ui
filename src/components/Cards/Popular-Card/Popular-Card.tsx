@@ -17,7 +17,7 @@ const PopularCard: FunctionComponent<PopularCardProps> = ({
       <a href={card.link} className={styles.card__wrapper}>
         <figure className={styles.card__figure}>
           <Image
-            src={card.image}
+            src={`${card.image}`}
             alt='Dam'
             width={300}
             height={200}

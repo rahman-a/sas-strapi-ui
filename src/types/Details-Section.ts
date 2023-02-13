@@ -15,6 +15,7 @@ export type Quote = {
 
 export interface Data {
   id: number
+  __component?: string
   title?: string
   content: string
   link?: string

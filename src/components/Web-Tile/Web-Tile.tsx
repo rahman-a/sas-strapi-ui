@@ -3,16 +3,10 @@ import styles from './Web-Tile.module.scss'
 import classnames from 'classnames'
 import { RightArrow } from '../icons'
 import Image from 'next/legacy/image'
-
-type Tile = {
-  title: string
-  description: string
-  icon: string
-  link: string
-}
+import { WebTile } from '@customTypes/Layout'
 
 interface WebTileProps {
-  tile: Tile
+  tile: WebTile
   style?: React.CSSProperties
   className?: string
 }
@@ -40,7 +34,7 @@ const WebTile: FunctionComponent<WebTileProps> = ({
         <div className={styles.tile__content}>
           <p className={styles.tile__title}>{tile.title}</p>
           <h2 className={styles.tile__description}>
-            {tile.description}
+            {tile.subtitle}
             <span>
               <RightArrow />
             </span>

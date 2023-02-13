@@ -58,20 +58,25 @@ const PrivacyPolicy = () => {
               network is a separate legal entity. The data controllers of your
               personal information are one or more of the Member Firms listed
               here at
-              <Link href='/about/corporate-governance/legal-entities'>
-                <a className={styles.legal__link}>
-                  https://www.sas.com/about/corporate-governance/legal-entities.
-                </a>
+              <Link
+                className={styles.legal__link}
+                href='/about/corporate-governance/legal-entities'
+              >
+                https://www.sas.com/about/corporate-governance/legal-entities.
               </Link>
               For further details, please see
-              <Link href='/about/network-structure'>
-                <a className={styles.legal__link}>www.sas.com/structure.</a>
+              <Link
+                className={styles.legal__link}
+                href='/about/network-structure'
+              >
+                www.sas.com/structure.
               </Link>
               See
-              <Link href='/about/office-locations'>
-                <a className={styles.legal__link}>
-                  http://www.sas.com/about/office-locations
-                </a>
+              <Link
+                className={styles.legal__link}
+                href='/about/office-locations'
+              >
+                http://www.sas.com/about/office-locations
               </Link>
               for a list of countries and regions in which SAS Member Firms
               operate.
@@ -174,10 +179,11 @@ const PrivacyPolicy = () => {
             <h3 className={subheaderClasses}>Other SAS Member Firms</h3>
             <p className={styles.legal__par}>
               For details of SAS Member Firm locations, please see
-              <Link href='/about/office-locations'>
-                <a className={styles.legal__link}>
-                  http://www.sas.com/about/office-locations.
-                </a>
+              <Link
+                className={styles.legal__link}
+                href='/about/office-locations'
+              >
+                http://www.sas.com/about/office-locations.
               </Link>
             </p>
             <p className={styles.legal__par}>
@@ -262,59 +268,68 @@ const PrivacyPolicy = () => {
                     <ul className={styles.legal__explore_list}>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Business contacts
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Business contacts
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Corporate clients (and individuals associated with
-                            our corporate clients)
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Corporate clients (and individuals associated with our
+                          corporate clients)
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Personal clients
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Personal clients
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Individuals who use our applications
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Individuals who use our applications
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Individuals whose personal data we obtain in
-                            connection with providing professional services to
-                            our clients
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Individuals whose personal data we obtain in
+                          connection with providing professional services to our
+                          clients
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>Websites</a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Websites
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Marketing activities
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Marketing activities
                         </Link>
                       </li>
                     </ul>
@@ -325,51 +340,57 @@ const PrivacyPolicy = () => {
                     <ul className={styles.legal__explore_list}>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Others who get in touch with us
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Others who get in touch with us
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Recruitment applicants
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          \ Recruitment applicants
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Suppliers (including subcontractors and individuals
-                            associated with our suppliers and subcontractors)
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Suppliers (including subcontractors and individuals
+                          associated with our suppliers and subcontractors)
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            SAS Personnel (partners, staff and contractors)
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          SAS Personnel (partners, staff and contractors)
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Insolvencies and restructuring
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Insolvencies and restructuring
                         </Link>
                       </li>
                       {/* Explore Legal Item */}
                       <li className={styles.legal__explore_item}>
-                        <Link href='/legal/privacy-statement#personal-data'>
-                          <a className={styles.legal__explore_link}>
-                            Visitors to our offices
-                          </a>
+                        <Link
+                          className={styles.legal__explore_link}
+                          href='/legal/privacy-statement#personal-data'
+                        >
+                          Visitors to our offices
                         </Link>
                       </li>
                     </ul>
@@ -510,28 +531,28 @@ const PrivacyPolicy = () => {
             <ul className={styles.legal__list}>
               <li className={styles.legal__item}>
                 Please
-                <Link href='#'>
-                  <a className={styles.legal__link}>submit a request</a>
+                <Link href='#' className={styles.legal__link}>
+                  submit a request
                 </Link>
                 to exercise a legal right in relation to your personal data, or
                 an
-                <Link href='#'>
-                  <a className={styles.legal__link}>enquiry</a>
+                <Link href='#' className={styles.legal__link}>
+                  enquiry
                 </Link>
                 if you have a question or complaint about the handling of your
                 personal data.
               </li>
               <li className={styles.legal__item}>
-                <Link href='#'>
-                  <a className={styles.legal__link}>Request</a>
+                <Link className={styles.legal__link} href='#'>
+                  Request
                 </Link>
                 to delete your sas.com or 365 app account. This process may take
                 up to 30 days.
               </li>
               <li className={styles.legal__item}>
                 For anything else, please use our{' '}
-                <Link href='#'>
-                  <a className={styles.legal__link}>general contact form.</a>
+                <Link className={styles.legal__link} href='#'>
+                  general contact form
                 </Link>
               </li>
             </ul>

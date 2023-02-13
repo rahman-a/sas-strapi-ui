@@ -1,105 +1,163 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import MarkdownIt from 'markdown-it'
+import { NextSeo } from 'next-seo'
+import parser from 'html-react-parser'
 import styles from '@styles/pages/issue.module.scss'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import {
   DetailsSection,
   HeroSection,
   FilteredList,
   FloatContainer,
-  Footer,
 } from '@components'
 import { Section } from '@components/Layout'
 import { AdvantageCard, CardsWrapper, StaffCard } from '@components/Cards'
-import heroData from '@data/hero-section.json'
-import { HeroSection as HeroSectionType } from '@customTypes/Hero-Section'
-import issuesData from '@data/issue-sections.json'
-import filterData from '@data/filtered-list.json'
-import staffData from '@data/staff.json'
-import staticPaths from '@data/static-paths.json'
+import { IssuePageLayout } from '@customTypes/Layout'
 import { Button } from '@components/ui'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import fetcher from '@lib/api'
+import QueryString from 'qs'
 
-interface StaticParams {
-  issue: string | string[] | undefined
+interface IssueProps {
+  layout: IssuePageLayout
+  meta: {
+    title: string
+    description: string
+  }
 }
 
-const Issue = () => {
-  const [heroSection, setHeroSection] = useState<HeroSectionType>(
-    heroData['issue']
-  )
-
+const Issue: NextPage<IssueProps> = ({ layout, meta }) => {
   return (
-    <div className={styles.issue}>
-      {heroSection && <HeroSection data={heroSection} />}
-      <Section>
-        <DetailsSection data={issuesData['video']} reverse />
-      </Section>
-      <Section style={{ backgroundColor: 'var(--background-color)' }}>
-        <DetailsSection data={issuesData['section'].details} />
-        <CardsWrapper>
-          {issuesData['section'].cards.map((card, index) => (
-            <AdvantageCard key={card._id} card={card} />
-          ))}
-        </CardsWrapper>
-      </Section>
-      <Section>
-        <FilteredList data={filterData} />
-      </Section>
-      <Section className={styles.issue__help}>
-        <div className={styles.issue__help_wrapper}>
-          <h3 className={styles.issue__help_title}>How we can help</h3>
-          <div className={styles.issue__help_content}>
-            <p>
-              Exploring unexpected angles, our agile community of solvers works
-              with you to define new approaches to value creation—from making
-              your business more resilient to bolstering your ESG framework. We
-              look holistically at all aspects of an organisation’s performance
-              to propose enterprise-wide transformation initiatives or smaller
-              scale optimisation programmes.
-            </p>
-            <p>
-              Driven by data, our tech-powered teams use AI, machine learning
-              and cutting-edge analytics to build scenarios for your value
-              chain. Our expertise in finance, operations, deals, strategy, tax
-              and accounting, enables us to go wide and take the long-view to
-              ensure your business is positioned to deliver sustained outcomes
-              for the future.
-            </p>
+    <>
+      <NextSeo title={meta.title} description={meta.description} />
+      <div className={styles.issue}>
+        {layout.heroSection && <HeroSection data={layout.heroSection} />}
+        <Section>
+          <DetailsSection data={layout.textBlock} reverse />
+        </Section>
+        <Section style={{ backgroundColor: 'var(--background-color)' }}>
+          <DetailsSection data={layout.textBlock2} />
+          <CardsWrapper>
+            {layout.detailedCards.cards.map((card, index) => (
+              <AdvantageCard key={card.id} card={card} />
+            ))}
+          </CardsWrapper>
+        </Section>
+        <Section>
+          {layout.filteredList && <FilteredList data={layout.filteredList} />}
+        </Section>
+        <Section
+          className={styles.issue__help}
+          style={{ backgroundImage: `url(${layout.textBlock3.image})` }}
+        >
+          <div className={styles.issue__help_wrapper}>
+            <h3 className={styles.issue__help_title}>How we can help</h3>
+            <div className={styles.issue__help_content}>
+              {parser(layout.textBlock3.content)}
+            </div>
+            {layout.textBlock3?.label && (
+              <Button
+                as='a'
+                href={layout.textBlock3?.link || ''}
+                variant='white'
+                style={{ alignSelf: 'flex-start' }}
+              >
+                {layout.textBlock3?.label}
+              </Button>
+            )}
           </div>
-          <Button variant='white' style={{ alignSelf: 'flex-start' }}>
-            Learn more
-          </Button>
-        </div>
-      </Section>
-      <FloatContainer>
-        <div className={styles.issue__staff}>
-          {staffData.staff.map((staff) => (
-            <StaffCard key={staff._id} staff={staff} />
-          ))}
-        </div>
-      </FloatContainer>
-    </div>
+        </Section>
+        {layout.staff && layout.staff.length > 0 && (
+          <FloatContainer>
+            <div className={styles.issue__staff}>
+              {layout.staff.map((staff) => (
+                <StaffCard key={staff.id} staff={staff.attributes!} />
+              ))}
+            </div>
+          </FloatContainer>
+        )}
+      </div>
+    </>
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = staticPaths.issues.map((item) => ({
-    params: {
-      issue: item.page,
-    },
-  }))
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
+  const query = QueryString.stringify({
+    populate: ['parent'],
+    fields: ['slug'],
+  })
+  const response = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/issues-pages?${query}`
+  )
+  const paths = response?.data
+    .map((item: any) => {
+      const parent = item.attributes.parent.data?.attributes.slug
+      if (!parent) return { params: { issue: item.attributes.slug } }
+    })
+    .filter((item: any) => item !== undefined)
   return {
     paths,
     fallback: false,
   }
 }
 
-export const getStaticProps: GetStaticProps<StaticParams> = async ({
-  params,
-}) => {
-  const issue = params?.issue
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const query = QueryString.stringify({
+    populate: 'deep,4',
+    filters: {
+      slug: params?.issue,
+    },
+  })
+  const response = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/issues-pages?${query}`
+  )
+  if (response.data.length === 0) {
+    return {
+      notFound: true,
+    }
+  }
+  const data = response.data[0].attributes
+  if (data.parent.data) {
+    return {
+      notFound: true,
+    }
+  }
+  const meta = {
+    title: data.title,
+    description: data.description,
+  }
+  const layout = {
+    id: response.data[0].id,
+    heroSection: data.HeroSection,
+    textBlock: {
+      ...data.TextBlock,
+      content: MarkdownIt({ html: true }).render(data.TextBlock.content),
+    },
+    textBlock2: {
+      ...data.TextBlock2,
+      content: MarkdownIt({ html: true }).render(data.TextBlock2.content),
+    },
+    textBlock3: {
+      ...data.TextBlock3,
+      content: MarkdownIt({ html: true }).render(data.TextBlock3.content),
+    },
+    filteredList: data.TabbedNavbar,
+    detailedCards: data.DetailedCards,
+    staff: data.employees.data.map((employee: any) => ({
+      id: employee.id,
+      attributes: {
+        name: employee.attributes.name,
+        role: employee.attributes.role,
+        tel: employee.attributes.tel,
+        email: employee.attributes.email,
+        photo: employee.attributes.photo,
+        social: employee.attributes.social,
+      },
+    })),
+  }
   return {
     props: {
-      issue,
+      layout,
+      meta,
     },
   }
 }

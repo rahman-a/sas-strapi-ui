@@ -28,8 +28,8 @@ const HeroSection: FunctionComponent<HeroSectionProps> = ({
   })
 
   useEffect(() => {
-    data.image && setBackground(`url(${data.image}) no-repeat`)
-  }, [data.image])
+    data?.image && setBackground(`url(${data.image}) no-repeat`)
+  }, [data?.image])
   return (
     <section
       className={heroClasses}

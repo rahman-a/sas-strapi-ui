@@ -97,8 +97,11 @@ const CookiePolicy = () => {
               </p>
               <p className={styles.legal__par}>
                 Information about the cookies used on our Websites can be found
-                <Link href='/legal-notices/cookie-policy#cookie-disclosure'>
-                  <a className={styles.legal__link}> below</a>
+                <Link
+                  className={styles.legal__link}
+                  href='/legal-notices/cookie-policy#cookie-disclosure'
+                >
+                  below
                 </Link>
                 . Individual SAS sites may use additional cookies or third-party
                 analytics tools. For more information about the cookies and
@@ -145,46 +148,58 @@ const CookiePolicy = () => {
                 to control cookies for common browsers is linked below.
               </p>
               <p className={styles.legal__par}>
-                <Link href='https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en'>
-                  <a className={styles.legal__link} target='_blank'>
-                    Google Chrome
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en'
+                >
+                  Google Chrome
                 </Link>
                 <br />
                 <br />
-                <Link href='https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences'>
-                  <a className={styles.legal__link} target='_blank'>
-                    Mozilla Firefox
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences'
+                >
+                  Mozilla Firefox
                 </Link>
                 <br />
                 <br />
-                <Link href='https://support.apple.com/kb/ph21411?locale=en_US'>
-                  <a className={styles.legal__link} target='_blank'>
-                    MacOS Safari
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='https://support.apple.com/kb/ph21411?locale=en_US'
+                >
+                  MacOS Safari
                 </Link>
                 <br />
                 <br />
-                <Link href='https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies'>
-                  <a className={styles.legal__link} target='_blank'>
-                    Microsoft Internet Explorer
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies'
+                >
+                  Microsoft Internet Explorer
                 </Link>
               </p>
               <p className={styles.legal__par}>
                 For information on additional browsers and device types please
                 see
-                <Link href='http://www.aboutcookies.org/'>
-                  <a className={styles.legal__link} target='_blank'>
-                    http://www.aboutcookies.org/
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='http://www.aboutcookies.org/'
+                >
+                  http://www.aboutcookies.org/
                 </Link>
                 or
-                <Link href='http://www.cookiecentral.com/faq/'>
-                  <a className={styles.legal__link} target='_blank'>
-                    http://www.cookiecentral.com/faq/.
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='http://www.cookiecentral.com/faq/'
+                >
+                  http://www.cookiecentral.com/faq/.
                 </Link>
               </p>
               <h3 className={styles.legal__subheader}>
@@ -199,18 +214,22 @@ const CookiePolicy = () => {
               </p>
               <p className={styles.legal__par}>
                 Adobe:
-                <Link href='https://www.adobe.com/privacy/opt-out.html'>
-                  <a className={styles.legal__link} target='_blank'>
-                    https://www.adobe.com/privacy/opt-out.html
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='https://www.adobe.com/privacy/opt-out.html'
+                >
+                  https://www.adobe.com/privacy/opt-out.html
                 </Link>
               </p>
               <p className={styles.legal__par}>
                 Google Analytics:
-                <Link href='https://www.google.com/analytics/learn/privacy.html'>
-                  <a className={styles.legal__link} target='_blank'>
-                    https://www.google.com/analytics/learn/privacy.html
-                  </a>
+                <Link
+                  className={styles.legal__link}
+                  target='_blank'
+                  href='https://www.google.com/analytics/learn/privacy.html'
+                >
+                  https://www.google.com/analytics/learn/privacy.html
                 </Link>
               </p>
             </div>
@@ -271,8 +290,11 @@ const CookiePolicy = () => {
                 advertisements are solely intended to make you aware of relevant
                 SAS promotions. SAS does not sell your data to any third
                 parties. Please see our
-                <Link href='/legal-notices/privacy-policy'>
-                  <a className={styles.legal__link}>privacy policy</a>
+                <Link
+                  className={styles.legal__link}
+                  href='/legal-notices/privacy-policy'
+                >
+                  privacy policy
                 </Link>
                 for more details.
               </p>
@@ -358,9 +380,7 @@ const CookiePolicy = () => {
           <div className={styles.legal__related}>
             <article className={styles.legal__card}>
               <h2 className={styles.legal__card_title}>
-                <Link href='/legal-notices/cookie-policy'>
-                  <a>Cookie policy</a>
-                </Link>
+                <Link href='/legal-notices/cookie-policy'>Cookie policy</Link>
               </h2>
               <p className={styles.legal__card_par}>
                 Our cookie policy gives information about the cookies that we
@@ -370,7 +390,7 @@ const CookiePolicy = () => {
             <article className={styles.legal__card}>
               <h2 className={styles.legal__card_title}>
                 <Link href='/legal-notices/legal-disclaimer'>
-                  <a>Legal disclaimer</a>
+                  Legal disclaimer
                 </Link>
               </h2>
               <p className={styles.legal__card_par}>
@@ -382,7 +402,7 @@ const CookiePolicy = () => {
             <article className={styles.legal__card}>
               <h2 className={styles.legal__card_title}>
                 <Link href='/legal-notices/privacy-policy'>
-                  <a>Our privacy commitment</a>
+                  Our privacy commitment
                 </Link>
               </h2>
               <p className={styles.legal__card_par}>

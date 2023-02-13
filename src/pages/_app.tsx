@@ -5,6 +5,8 @@ import { Layout } from '../components'
 import fetcher from '@lib/api'
 import { Menu } from '@customTypes/Menu'
 import { Footer } from '@customTypes/Footer'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 let headerCachedData: Menu | null = null
 let footerCachedData: Footer | null = null
@@ -13,6 +15,7 @@ interface IProps extends AppProps {
   menu: Menu
   footer: Footer
 }
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps, menu, footer }: IProps) {
   useEffect(() => {
@@ -20,9 +23,12 @@ function MyApp({ Component, pageProps, menu, footer }: IProps) {
     !footerCachedData && (footerCachedData = footer)
   }, [])
   return (
-    <Layout menu={menu} footer={footer}>
-      <Component {...pageProps} />
-    </Layout>
+    <QueryClientProvider client={queryClient}>
+      <Layout menu={menu} footer={footer}>
+        <Component {...pageProps} />
+      </Layout>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 

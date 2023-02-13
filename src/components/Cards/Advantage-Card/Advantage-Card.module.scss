@@ -32,6 +32,9 @@
   &__image {
     position: relative;
     width: 20rem;
+    img {
+      object-fit: cover;
+    }
   }
 
   &__title {

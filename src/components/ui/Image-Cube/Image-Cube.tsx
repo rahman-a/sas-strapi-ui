@@ -11,7 +11,17 @@ import { Cube } from '../../icons'
 
 type EventType = DragEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>
 
-const ImageCube = () => {
+interface imageCubeProps {
+  images: {
+    id: number
+    firstImage: string
+    secondImage: string
+    thirdImage: string
+    fourthImage: string
+  }
+}
+
+const ImageCube = ({ images }: imageCubeProps) => {
   const cubeRef = useRef<HTMLDivElement>(null)
   const [transformX, setTransformX] = useState(0)
   const [transformY, setTransformY] = useState(0)
@@ -75,10 +85,30 @@ const ImageCube = () => {
     <div className={styles.cube}>
       <div className={styles.cube__wrapper}>
         <div className={styles.cube__faces} ref={cubeRef}>
-          <div className={cubeFaceClasses(1)}></div>
-          <div className={cubeFaceClasses(2)}></div>
-          <div className={cubeFaceClasses(3)}></div>
-          <div className={cubeFaceClasses(4)}></div>
+          {images.firstImage && (
+            <div
+              className={cubeFaceClasses(1)}
+              style={{ backgroundImage: `url(${images.firstImage})` }}
+            ></div>
+          )}
+          {images.secondImage && (
+            <div
+              className={cubeFaceClasses(2)}
+              style={{ backgroundImage: `url(${images.secondImage})` }}
+            ></div>
+          )}
+          {images.thirdImage && (
+            <div
+              className={cubeFaceClasses(3)}
+              style={{ backgroundImage: `url(${images.thirdImage})` }}
+            ></div>
+          )}
+          {images.fourthImage && (
+            <div
+              className={cubeFaceClasses(4)}
+              style={{ backgroundImage: `url(${images.fourthImage})` }}
+            ></div>
+          )}
         </div>
       </div>
       <div
