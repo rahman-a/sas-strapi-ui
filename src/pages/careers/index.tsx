@@ -93,6 +93,7 @@ export const getStaticProps = async () => {
       meta,
       blocks,
     },
+    revalidate: 60,
   }
 }
 

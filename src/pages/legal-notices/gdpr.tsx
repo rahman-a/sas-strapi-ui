@@ -45,6 +45,7 @@ export const getStaticProps = async () => {
         heroSection: data.HeroSection,
       },
     },
+    revalidate: 60,
   }
 }
 

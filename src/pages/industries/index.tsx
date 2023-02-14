@@ -63,5 +63,6 @@ export const getStaticProps: GetStaticProps = async () => {
       meta,
       divisions,
     },
+    revalidate: 60,
   }
 }

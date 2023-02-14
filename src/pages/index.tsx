@@ -151,5 +151,6 @@ export const getStaticProps: GetStaticProps = async () => {
       meta,
       layout,
     },
+    revalidate: 60,
   }
 }

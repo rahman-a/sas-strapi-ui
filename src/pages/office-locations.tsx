@@ -30,6 +30,7 @@ export const getStaticProps = async () => {
     props: {
       countries,
     },
+    revalidate: 60,
   }
 }
 

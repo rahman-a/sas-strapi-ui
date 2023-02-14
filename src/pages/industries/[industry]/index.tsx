@@ -183,6 +183,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       layout,
       meta,
     },
+    revalidate: 60,
   }
 }
 
