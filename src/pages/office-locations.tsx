@@ -11,9 +11,6 @@ const heroData = {
 }
 
 const OfficeLocations = ({ countries }: any) => {
-  useEffect(() => {
-    console.log('countries', countries)
-  }, [])
   return (
     <div className={styles.offices}>
       <HeroSection data={heroData} className={styles.offices__hero} />
