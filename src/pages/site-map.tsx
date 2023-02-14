@@ -47,9 +47,7 @@ const SiteMap = ({ menu }: any) => {
 }
 
 export const getStaticProps = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/menu?populate=deep`
-  )
+  const response = await fetcher({ url: '/api/menu?populate=deep' })
   const data = response.data.attributes
   const menu = data.panels
     .map((panel: any) => {

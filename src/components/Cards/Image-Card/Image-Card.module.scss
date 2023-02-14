@@ -1,13 +1,14 @@
 @use '../../../styles/media' as media;
 .card {
   max-width: 45rem;
+  background-position: center;
+  background-size: cover;
   @include media.breakpoint(md) {
     min-width: 35rem;
   }
   &__wrapper {
     position: relative;
     display: block;
-    // background-image: url(../../../../public/images/gettyimages.webp);
     background-repeat: no-repeat;
     padding-top: 10rem;
     text-decoration: none;

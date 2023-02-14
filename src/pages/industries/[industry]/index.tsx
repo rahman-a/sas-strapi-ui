@@ -101,9 +101,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
     populate: ['parent'],
     fields: ['slug'],
   })
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/industries-pages?${query}`
-  )
+  const response = await fetcher({ url: `/api/industries-pages?${query}` })
   const paths = response?.data
     .map((item: any) => {
       const parent = item.attributes.parent.data?.attributes.slug
@@ -123,9 +121,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug: params?.industry,
     },
   })
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/industries-pages?${query}`
-  )
+  const response = await fetcher({ url: `/api/industries-pages?${query}` })
   if (response.data.length === 0) {
     return {
       notFound: true,

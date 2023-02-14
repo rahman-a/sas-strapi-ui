@@ -60,9 +60,7 @@ const Career = ({ meta, blocks }: CareerProps) => {
 }
 
 export const getStaticProps = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/career?populate=deep`
-  )
+  const response = await fetcher({ url: '/api/career?populate=deep' })
   const data = response.data.attributes
   const blocks = data.Blocks?.map((block: any) => {
     if (block.__component === 'global.text-block') {

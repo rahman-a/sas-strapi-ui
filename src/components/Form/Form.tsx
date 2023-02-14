@@ -5,7 +5,7 @@ import { Asterisk } from '../icons'
 import { Input, Select } from '../ui/Form'
 import { Button } from '../ui'
 import options from '@data/form-options.json'
-import countries from '@data/countries.json'
+import countries from '@data/allCountriesData.json'
 
 type Option = {
   _id: string

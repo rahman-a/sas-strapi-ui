@@ -98,10 +98,13 @@ const Home: NextPage<HomeProps> = ({ layout, meta }) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/home-page?populate=deep`
-  )
-  const data = response.data.attributes.Layout
+  const response = await fetcher({ url: '/api/home-page?populate=deep' })
+  if (!response || response.data?.length === 0) {
+    return {
+      notFound: true,
+    }
+  }
+  const data = response?.data.attributes.Layout
   const meta = {
     title: response.data.attributes.title,
     description: response.data.attributes.description,

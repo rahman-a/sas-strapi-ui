@@ -12,10 +12,9 @@ import {
   Countries,
   ListType,
 } from '@customTypes/Offices'
-import countries from '@data/offices.json'
 import { useMediaQuery } from '@hooks'
 
-const MapContainer = () => {
+const MapContainer = ({ countries }: any) => {
   // ٍStates
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false)
   const [activeTap, setActiveTap] = useState<'map' | 'list'>(() => 'list')
@@ -88,9 +87,9 @@ const MapContainer = () => {
   ])
 
   const findCityAndCountryOfOffice = (id: number) => {
-    countries.data.forEach((country) => {
-      country.attributes.cities.data.forEach((city) => {
-        city.attributes.offices.data.forEach((office) => {
+    countries.data.forEach((country: any) => {
+      country.attributes.cities.data.forEach((city: any) => {
+        city.attributes.offices.data.forEach((office: any) => {
           if (office.id === id) {
             if (city.attributes.offices.data.length > 1)
               setOffices(city.attributes.offices.data)

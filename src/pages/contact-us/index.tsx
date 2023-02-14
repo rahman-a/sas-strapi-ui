@@ -9,8 +9,8 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import classnames from 'classnames'
 import countriesData from '@data/allCountriesData.json'
-import { postContactData } from './api'
-import { FormData, ErrorFields } from './types'
+import { postContactData } from '@lib/api'
+import { FormData, ErrorFields } from '@customTypes/Contact-us'
 
 const inquiryType = [
   { _id: '1', label: 'Employment', value: 'employment', name: 'employment' },

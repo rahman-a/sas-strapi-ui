@@ -85,9 +85,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     populate: ['parent'],
     fields: ['slug'],
   })
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/issues-pages?${query}`
-  )
+  const response = await fetcher({ url: `/api/issues-pages?${query}` })
   const paths = response?.data
     .map((item: any) => {
       const parent = item.attributes.parent.data?.attributes.slug
@@ -110,9 +108,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug: params?.subissue,
     },
   })
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/issues-pages?${query}`
-  )
+  const response = await fetcher({ url: `/api/issues-pages?${query}` })
   if (response.data.length === 0) {
     return {
       notFound: true,

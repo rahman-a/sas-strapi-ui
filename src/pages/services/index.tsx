@@ -26,9 +26,7 @@ const Services: FunctionComponent<ServicesProps> = ({ meta, divisions }) => {
 export default Services
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/service?populate=deep`
-  )
+  const response = await fetcher({ url: '/api/service?populate=deep' })
   const meta = {
     title: response.data.attributes.title,
     description: response.data.attributes.description,

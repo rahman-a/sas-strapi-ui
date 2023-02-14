@@ -30,9 +30,7 @@ const GDPR = ({ meta, layout }: any) => {
 }
 
 export const getStaticProps = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/gdpr?populate=deep`
-  )
+  const response = await fetcher({ url: '/api/gdpr?populate=deep' })
   const data = response.data.attributes
   const meta = {
     title: data.title,

@@ -39,20 +39,16 @@ MyApp.getInitialProps = async (ctx: any) => {
       footer: footerCachedData,
     }
   }
-  const menu = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/menu?populate=deep`
-  )
-  const footerResponse = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/footer?populate=deep`
-  )
+  const menu = await fetcher({ url: '/api/menu?populate=deep' })
+  const footerResponse = await fetcher({ url: '/api/footer?populate=deep' })
   const footer = {
-    id: footerResponse.data.id,
-    mainLinks: footerResponse.data.attributes.mainLinks,
-    legalLinks: footerResponse.data.attributes.legalLinks,
-    icon: `${process.env.NEXT_PUBLIC_STRAPI_API}${footerResponse.data.attributes.logo.data.attributes.url}`,
+    id: footerResponse?.data.id,
+    mainLinks: footerResponse?.data.attributes.mainLinks,
+    legalLinks: footerResponse?.data.attributes.legalLinks,
+    icon: `${process.env.NEXT_PUBLIC_STRAPI_API}${footerResponse?.data.attributes.logo.data.attributes.url}`,
   }
   return {
-    menu: menu.data.attributes.panels,
+    menu: menu?.data.attributes.panels,
     footer,
   }
 }

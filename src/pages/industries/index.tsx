@@ -29,9 +29,7 @@ const Industries: FunctionComponent<IndustriesProps> = ({
 export default Industries
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_API}/api/industry?populate=deep`
-  )
+  const response = await fetcher({ url: '/api/industry?populate=deep' })
   const meta = {
     title: response.data.attributes.title,
     description: response.data.attributes.description,
