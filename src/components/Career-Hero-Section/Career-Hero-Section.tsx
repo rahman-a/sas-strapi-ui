@@ -20,7 +20,7 @@ const CareerHeroSection = ({ data }: CareerHeroSectionProps) => {
       className={styles.hero}
       style={{
         backgroundImage: data.backgroundImage
-          ? `url(data.backgroundImage)`
+          ? `url(${data.backgroundImage})`
           : '',
       }}
     >
