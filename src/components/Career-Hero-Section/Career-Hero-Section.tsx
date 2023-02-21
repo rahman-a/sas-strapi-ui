@@ -16,7 +16,12 @@ interface CareerHeroSectionProps {
 
 const CareerHeroSection = ({ data }: CareerHeroSectionProps) => {
   return (
-    <section className={styles.hero}>
+    <section
+      className={styles.hero}
+      style={{
+        backgroundImage: data.backgroundImage ? data.backgroundImage : '',
+      }}
+    >
       <div className={styles.hero__row}>
         <div className={styles.hero__float}>
           <span className={styles['hero__float-1']}></span>
