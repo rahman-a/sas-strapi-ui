@@ -19,7 +19,9 @@ const CareerHeroSection = ({ data }: CareerHeroSectionProps) => {
     <section
       className={styles.hero}
       style={{
-        backgroundImage: data.backgroundImage ? data.backgroundImage : '',
+        backgroundImage: data.backgroundImage
+          ? `url(data.backgroundImage)`
+          : '',
       }}
     >
       <div className={styles.hero__row}>
